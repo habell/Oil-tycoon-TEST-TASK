@@ -8,7 +8,7 @@ public abstract class AbstractAmmo : MonoBehaviour
     private int defaultDamage = 100;
     protected private bool _destroyableOnCollision = false;
 
-    public abstract void DestroyAmmo(); // из-за возможной разности логики уничтожения объектов, нужно будет оверрайдить этот метод в каждом отдельном потомке
+    public abstract void DestroyAmmo(); 
 
     void Start()
     {

@@ -8,7 +8,7 @@ public class MovingSystem : MonoBehaviour
     [SerializeField] private float _jumpSpeed = 1;
     [SerializeField] private float _jumpMax = 100;
     [SerializeField] private Vector3 _direction;
-    private float _yDefault; // в целом можно и проверять просто на 0, но это на случай если стандартная координата каким-то магическим образом изменится
+    private float _yDefault;
     private bool _jumpStop;
 
     void Start()
@@ -20,7 +20,7 @@ public class MovingSystem : MonoBehaviour
         var x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
         if (x != 0)
-            transform.Rotate(0, x, 0); // я столько себе мозг компосировал, забыл как делать поворот, на месте этой строчки было 30 строк моей часовой огонии и идиотских попыток крутить объект хз как..
+            transform.Rotate(0, x, 0);
 
         // логика прыжка
         if (Input.GetKeyUp(KeyCode.Space)) _jumpStop = true;
@@ -37,12 +37,12 @@ public class MovingSystem : MonoBehaviour
                 if (gameObject.transform.position.y <= _yDefault) _jumpStop = false;
             }
         }
-        gameObject.GetComponent<Rigidbody>().freezeRotation = true; // блокируем самостоятельный поворот
+        gameObject.GetComponent<Rigidbody>().freezeRotation = true;
     }
 
     private void FixedUpdate()
     {
-        Vector3 moveSpeed = _direction * _speed * Time.deltaTime;
+        Vector3 moveSpeed = _direction * _speed * Time.fixedDeltaTime;
         transform.Translate(moveSpeed);
     }
 }

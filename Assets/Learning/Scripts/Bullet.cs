@@ -6,7 +6,7 @@ public class Bullet : AbstractAmmo
 {
     [SerializeField] private float _bulletLifeTime = 1;
     [SerializeField] private float _bulletSpeed = 10;
-    [SerializeField] internal Vector3 _plVector;
+    [SerializeField] private Vector3 _plVector;
 
     void Start()
     {
@@ -19,9 +19,14 @@ public class Bullet : AbstractAmmo
         Destroy(gameObject);
     }
 
+    public void BulletSetForward(Vector3 playerForward)
+    {
+        _plVector = playerForward;
+    }
+
     void FixedUpdate()
     {
-        _bulletLifeTime -= Time.deltaTime;
+        _bulletLifeTime -= Time.fixedDeltaTime;
         if (_bulletLifeTime <= 0) Destroy(gameObject);
         gameObject.transform.position += _plVector / _bulletSpeed;
     }

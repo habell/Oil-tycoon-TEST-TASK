@@ -5,15 +5,14 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private float _defYpos;
-    private float _timer = 1;
     [SerializeField]
     private bool _doorStatus;
-    public GameObject button1;
-    public GameObject button2;
+    public Button button1;
+    public Button button2;
     private AudioSource AS;
-    public AudioClip clip;
+    private AudioClip clip;
 
-
+    
     void Start()
     {
         _defYpos = transform.position.y;
@@ -21,7 +20,7 @@ public class Door : MonoBehaviour
     }
     public void OpenDoor()
     {
-        if (button1.GetComponent<Button>().btnStatus && button2.GetComponent<Button>().btnStatus) _doorStatus = !_doorStatus;
+        if (button1.btnStatus && button2.btnStatus) _doorStatus = !_doorStatus;
         AS.clip = clip;
         AS.Play();
     }

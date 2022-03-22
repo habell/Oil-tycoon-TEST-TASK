@@ -25,8 +25,6 @@ public class ItsEnemy : MonoBehaviour
         }
     }
 
-
-
     /// <summary>
     /// Use Hurt(damage)
     /// </summary>

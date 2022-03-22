@@ -31,8 +31,8 @@ public class Button : MonoBehaviour
             }
             else
             {
-                Timer -= Time.deltaTime;
-                transform.position = new Vector3(transform.position.x + Time.deltaTime/10, transform.position.y, transform.position.z);
+                Timer -= Time.fixedDeltaTime;
+                transform.position = new Vector3(transform.position.x + Time.fixedDeltaTime/10, transform.position.y, transform.position.z);
             }
 
         }

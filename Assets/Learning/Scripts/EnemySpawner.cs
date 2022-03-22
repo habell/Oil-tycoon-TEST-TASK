@@ -21,14 +21,10 @@ public class EnemySpawner : MonoBehaviour
         {
             timerCount = DefaultTime;
             GameObject enemy = Instantiate(_spawnedObject, gameObject.transform.position, gameObject.transform.rotation);
-            enemy.GetComponent<WaypointPatrol>().waypoints = waypoints; // мне кажется будет достаточно логичным давать спавнеру точки будущих патрулей в ручную, это конечно можно было сделать рандомом или поиском и присвоением по компоненту или тегу, но я думаю в этом нет смысла в текущем контексте
+            enemy.GetComponent<WaypointPatrol>().waypoints = waypoints;
             print("Enemy has spawned!");
         }
         else
-        {
-            //print(timerCount);
-            //print(Time.deltaTime);
-            timerCount -= Time.deltaTime;
-        }
+            timerCount -= Time.fixedDeltaTime;
     }
 }
