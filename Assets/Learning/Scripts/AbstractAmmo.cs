@@ -1,27 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public abstract class AbstractAmmo : MonoBehaviour
 {
+    private const int DefaultDamage = 100;
+    
     [SerializeField] private int _damage;
-    private int defaultDamage = 100;
-    protected private bool _destroyableOnCollision = false;
+    
+    protected bool DestroyableOnCollision;
 
-    public abstract void DestroyAmmo(); 
-
-    void Start()
+    private void Awake()
     {
-        if (_damage == 0) _damage = defaultDamage;
+        var trigger = GetComponent<Collider>();
+        trigger.isTrigger = true;
     }
-    void OnTriggerEnter(Collider coll)
+
+    private void Start()
+    {
+        if (_damage == 0) _damage = DefaultDamage;
+    }
+
+    private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            var enemy = coll.GetComponent<ItsEnemy>();
+            var enemy = coll.GetComponent<Enemy>();
             enemy.Hurt(_damage);
             DestroyAmmo();
         }
+
         if (!coll.gameObject.CompareTag("Player")) DestroyAmmo();
     }
+
+    protected abstract void DestroyAmmo();
 }

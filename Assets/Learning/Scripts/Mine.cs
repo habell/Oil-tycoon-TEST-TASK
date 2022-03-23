@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mine : AbstractAmmo
 {
-    override public void DestroyAmmo()
+    protected override void DestroyAmmo()
     {
         // TODO: need to make explosive effects for homework
         Destroy(gameObject);

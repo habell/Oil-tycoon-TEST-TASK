@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootScript : MonoBehaviour
@@ -7,17 +5,15 @@ public class ShootScript : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _bulletSpawnPlace;
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            InstantNewBullet();
-        }
+        if (Input.GetMouseButtonDown(0)) InstantNewBullet();
     }
 
-    void InstantNewBullet()
+    private void InstantNewBullet()
     {
-        var bullet = Instantiate(_bullet, _bulletSpawnPlace.position + new Vector3(0, 1, 0), _bulletSpawnPlace.rotation);
-        bullet.BulletSetForward(gameObject.transform.forward);
+        var bullet = Instantiate(_bullet, _bulletSpawnPlace.position + new Vector3(0, 1, 0),
+            _bulletSpawnPlace.rotation);
+        bullet.BulletSetForward(transform.forward);
     }
 }
