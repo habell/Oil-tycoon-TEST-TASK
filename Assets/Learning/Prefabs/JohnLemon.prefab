@@ -849,6 +849,8 @@ GameObject:
   - component: {fileID: 1421829629708987735}
   - component: {fileID: -487247551702001111}
   - component: {fileID: -7482374373223061763}
+  - component: {fileID: 6105155435598931018}
+  - component: {fileID: -8815819335091424360}
   m_Layer: 0
   m_Name: JohnLemon
   m_TagString: Player
@@ -1067,8 +1069,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d88a342ba97b74d92780c1d3c3af50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mine: {fileID: 2112699016590922454, guid: 3fc474c1710f45e43a526bee756afa4a, type: 3}
-  _mineSpawnPlace: {fileID: 2008973354732098957}
+  _bullet: {fileID: -2028416903836116923, guid: 3fc474c1710f45e43a526bee756afa4a,
+    type: 3}
+  _bulletSpawnPlace: {fileID: 2008973354732098957}
+--- !u!114 &6105155435598931018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077229646317852079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b088e6503135a428782cfa010d1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyDeathsText: {fileID: 0}
+  _maxHealth: 0
+  _isPlayer: 0
+--- !u!114 &-8815819335091424360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077229646317852079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8728488421de45bb240318a161a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7028247037451646163
 GameObject:
   m_ObjectHideFlags: 0
