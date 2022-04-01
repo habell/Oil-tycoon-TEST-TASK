@@ -1,3 +1,4 @@
+using Learning.Scripts.Enemyes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ namespace Learning.Scripts.Mechanics
             {
                 case "Enemy":
                     if(_enemyCounter != null) _enemyCounter.text = (int.Parse(_enemyCounter.text) + 1).ToString(); 
+                    EnemyLeftTo.UpdateEnemyCount(true);
                     DefaultDie();
                     break;
                 default:

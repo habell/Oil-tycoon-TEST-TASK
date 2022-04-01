@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Learning.Scripts.DamageSystem
@@ -7,8 +10,11 @@ namespace Learning.Scripts.DamageSystem
         [SerializeField] private Bullet _bullet;
         [SerializeField] private Transform _bulletSpawnPlace;
         [SerializeField] private Vector3 _bulletShotPositionCorrect = new Vector3(0, 0, 0);
-        
-        public void Shot() // I would like to use a delegate here, but I don't know enough about them yet
+        private static int _bulletsBuffer = 30;
+
+        private List<Bullet> _Bullets = new List<Bullet>(_bulletsBuffer);
+
+        private void Start()
         {
             if (!_bullet)
             {
@@ -17,15 +23,43 @@ namespace Learning.Scripts.DamageSystem
                 //return;
             }
             if (!_bulletSpawnPlace) _bulletSpawnPlace = transform; 
-            InstantNewBullet();
+            for (int i = 0; i < _bulletsBuffer; i++)
+            {
+                var bullet = Instantiate(_bullet, transform);
+                bullet.tag = gameObject.tag;
+                _Bullets.Add(bullet);
+                bullet.gameObject.SetActive(false);
+            }
+            Debug.Log($"{_bulletsBuffer} Bullets in buffer has created!");
+        }
+
+        public void Shot()
+        {
+            foreach (var bullet in _Bullets)
+            {
+                if (!bullet.gameObject.activeSelf)
+                {
+                    InstantNewBullet(bullet);
+                    return;
+                }
+            }
+            Debug.LogError("You need to upgrade bullets buffer!");
+            var fixBullet = Instantiate(_bullet, transform);
+            InstantNewBullet(fixBullet);
+            fixBullet.tag = gameObject.tag;
         }
         
-        private void InstantNewBullet()
+        private void InstantNewBullet(Bullet bullet)
         {
-            var bullet = Instantiate(_bullet, _bulletSpawnPlace.position + _bulletShotPositionCorrect + gameObject.transform.forward,
-                _bulletSpawnPlace.rotation);
-            bullet.tag = gameObject.tag; // only offline gaming! If you want to make a multiplayer, this system want to refactor.
+            //var bullet = Instantiate(_bullet, _bulletSpawnPlace.position + _bulletShotPositionCorrect + gameObject.transform.forward,
+            //    _bulletSpawnPlace.rotation);
+            //bullet.tag = gameObject.tag;
+            Transform bulletTransform = bullet.gameObject.transform;
+            bulletTransform.position = Vector3.zero;
+            bulletTransform.position = _bulletSpawnPlace.position + _bulletShotPositionCorrect + gameObject.transform.forward;
+            bulletTransform.rotation = _bulletSpawnPlace.rotation;
             bullet.BulletSetForward(transform.forward);
+            bullet.ShotBullet();
         }
     }
 }

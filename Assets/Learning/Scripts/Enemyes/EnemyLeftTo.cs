@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,21 +6,42 @@ namespace Learning.Scripts.Enemyes
 {
     public class EnemyLeftTo : MonoBehaviour
     {
-        private float Timer = 0.5f;
-        void Update()
+        private static Text _enemyCounter;
+        private static float _timer = 30f;
+
+        private void Start()
         {
-            Timer -= Time.deltaTime;
-            if (Timer <= 0)
+            _enemyCounter = gameObject.GetComponent<Text>();
+            FixEnemyCounter();
+        }
+
+        public static void UpdateEnemyCount(bool dieEnemy)
+        {
+            int count = int.Parse(_enemyCounter.text);
+            count = dieEnemy ? count - 1 : count + 1;
+            _enemyCounter.text = count.ToString();
+            if (count <= 0)
             {
-                Timer = 0.5f;
-                var v = GameObject.FindGameObjectsWithTag("Enemy");
-                gameObject.GetComponent<Text>().text = v.Length.ToString();
-                if (v.Length <= 0)
-                {
-                    Application.Quit();
-                    print("GAME OVER!!!");
-                }
+                print("GAME OVER!!!");
+                return;
             }
+            
+        }
+
+        private void FixEnemyCounter()
+        {
+            var allEnemyElements = GameObject.FindGameObjectsWithTag("Enemy");
+            _enemyCounter.text = allEnemyElements.Length.ToString();
+        }
+
+        private void FixedUpdate()
+        {
+            if (_timer <= 0)
+            {
+                _timer = 30f;
+                FixEnemyCounter();
+            }
+            _timer -= Time.fixedDeltaTime;
         }
     }
 }
