@@ -10,14 +10,14 @@ namespace Learning.Scripts.Mechanics
     public class WaypointPatrol : MonoBehaviour
     {
         [SerializeField] private NavMeshAgent _navMeshAgent;
-        public Transform[] _waypoints;
+        public Transform[] waypoints;
         private bool _haveTargetPlayer;
         private int m_CurrentWaypointIndex;
 
         private void Start ()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            _navMeshAgent.SetDestination (_waypoints[0].position);
+            _navMeshAgent.SetDestination (waypoints[0].position);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -40,7 +40,7 @@ namespace Learning.Scripts.Mechanics
                 if (collisionObject.TryGetComponent(out MovingSystem player))
                 {
                     _haveTargetPlayer = false;
-                    _navMeshAgent.SetDestination(_waypoints[m_CurrentWaypointIndex].position);
+                    _navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
                 }
             }
         }
@@ -50,8 +50,8 @@ namespace Learning.Scripts.Mechanics
             if (_haveTargetPlayer) return;
             if(_navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)
             {
-                m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % _waypoints.Length;
-                _navMeshAgent.SetDestination (_waypoints[m_CurrentWaypointIndex].position);
+                m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+                _navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);
             }
         }
     }
