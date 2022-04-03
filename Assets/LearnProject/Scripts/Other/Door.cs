@@ -30,12 +30,12 @@ namespace Learning.Scripts.Other
         {
             if(!_doorStatus && _defYpos < 0)
             {
-                _defYpos += Time.deltaTime;
+                _defYpos += Time.fixedDeltaTime * 2;
                 transform.position = new Vector3(transform.position.x, _defYpos, transform.position.z);
             }
-            if (_doorStatus && _defYpos > -1)
+            if (_doorStatus && _defYpos > -1f)
             {
-                _defYpos -= Time.deltaTime;
+                _defYpos -= Time.fixedDeltaTime * 2;
                 transform.position = new Vector3(transform.position.x, _defYpos, transform.position.z);
             }
         }

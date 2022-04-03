@@ -564,8 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87db442af6be8e4a982be8e171e123b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3540391287371809819}
-  waypoints: []
+  _navMeshAgent: {fileID: 3540391287371809819}
+  _waypoints: []
 --- !u!82 &6986812540457888193
 AudioSource:
   m_ObjectHideFlags: 0
@@ -686,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b088e6503135a428782cfa010d1eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyCounter: {fileID: 0}
   _maxHealth: 10
   _enemyType: Enemy
   _isPlayer: 0

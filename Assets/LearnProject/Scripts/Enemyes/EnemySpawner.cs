@@ -23,9 +23,8 @@ namespace Learning.Scripts.Enemyes
                 _timerCount = _defaultTime;
                 var cachedTransform = transform;
                 var enemy = Instantiate(_spawnedObject, cachedTransform.position, cachedTransform.rotation);
-                enemy.GetComponent<WaypointPatrol>().waypoints = _waypoints;
+                enemy.GetComponent<WaypointPatrol>()._waypoints = _waypoints;
                 EnemyLeftTo.UpdateEnemyCount(false);
-                //enemy.WaypointPatrol.waypoints = _waypoints;
                 print("Enemy has spawned!");
             }
             else
