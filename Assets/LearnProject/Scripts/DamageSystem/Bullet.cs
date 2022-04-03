@@ -12,8 +12,14 @@ namespace Learning.Scripts.DamageSystem
 
         [SerializeField] private Vector3 _plVector;
 
-        private void Start()
+        private Transform _parentTransform;
+
+        private Rigidbody _rigidbody;
+
+        private void Awake()
         {
+            _parentTransform = GetComponentInParent<Transform>();
+            _rigidbody = GetComponent<Rigidbody>();
             destroyableOnCollision = true;
             _bulletSpeed = 10 / _bulletSpeed;
             _lifeTimer = _bulletLifeTime;
@@ -36,18 +42,15 @@ namespace Learning.Scripts.DamageSystem
 
         public void ShotBullet()
         {
-            _lifeTimer = _bulletLifeTime;
             gameObject.SetActive(true);
+            _lifeTimer = _bulletLifeTime;
+            _plVector = _parentTransform.forward * _bulletSpeed;
         }
         private void DestroyBullet()
         {
             gameObject.transform.position = Vector3.zero;
+            _rigidbody.velocity = Vector3.zero;
             gameObject.SetActive(false);
-        }
-
-        public void BulletSetForward(Vector3 playerForward)
-        {
-            _plVector = playerForward * _bulletSpeed;
         }
     }
 }

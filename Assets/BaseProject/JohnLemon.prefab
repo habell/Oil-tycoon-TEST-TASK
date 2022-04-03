@@ -844,16 +844,12 @@ GameObject:
   - component: {fileID: 2701863865896896819}
   - component: {fileID: 7438738072484405706}
   - component: {fileID: 3576288450122217075}
+  - component: {fileID: 142462114116109389}
   - component: {fileID: 355967702596757054}
   - component: {fileID: 685090927300085920}
-  - component: {fileID: 1421829629708987735}
-  - component: {fileID: -487247551702001111}
-  - component: {fileID: -7482374373223061763}
-  - component: {fileID: 6105155435598931018}
-  - component: {fileID: -8815819335091424360}
   m_Layer: 0
   m_Name: JohnLemon
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,7 +878,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b44f3940c4940544a8c2c6aee5fa086f, type: 3}
   m_Controller: {fileID: 9100000, guid: 125d3f71c2e7faf4cb375103b484d93e, type: 2}
   m_CullingMode: 1
@@ -923,6 +919,19 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &142462114116109389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077229646317852079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b2cfb9174a093419d0f8db96a60eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 20
 --- !u!82 &355967702596757054
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1027,78 +1036,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077229646317852079}
   m_Enabled: 1
---- !u!114 &1421829629708987735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a92f44b48370b4d8c3f5d673984f6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mine: {fileID: 4713333246408668213, guid: be9e7ce396d011e4191d0b34f2bfc10f, type: 3}
-  _mineSpawnPlace: {fileID: 2008973354732098957}
---- !u!114 &-487247551702001111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293b49a9bbd1ecd498415888d5f80bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _jumpSpeed: 1
-  _jumpMax: 100
-  _direction: {x: 0, y: 0, z: 0}
---- !u!114 &-7482374373223061763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d88a342ba97b74d92780c1d3c3af50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bullet: {fileID: -2028416903836116923, guid: 3fc474c1710f45e43a526bee756afa4a,
-    type: 3}
-  _bulletSpawnPlace: {fileID: 2008973354732098957}
---- !u!114 &6105155435598931018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b088e6503135a428782cfa010d1eed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyDeathsText: {fileID: 0}
-  _maxHealth: 0
-  _isPlayer: 0
---- !u!114 &-8815819335091424360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077229646317852079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8728488421de45bb240318a161a44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7028247037451646163
 GameObject:
   m_ObjectHideFlags: 0

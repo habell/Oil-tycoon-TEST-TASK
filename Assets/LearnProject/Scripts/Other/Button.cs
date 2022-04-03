@@ -5,7 +5,7 @@ namespace Learning.Scripts.Other
 {
     public class Button : MonoBehaviour
     {
-        public GameObject Door;
+        public Door Door;
         [FormerlySerializedAs("btnStatus")] public bool ButtonStatus;
         private float _timer = 5;
         private float _oldXpos;
@@ -17,13 +17,13 @@ namespace Learning.Scripts.Other
         private void OnTriggerEnter(Collider other)
         {
             ButtonStatus = true;
-            Door.GetComponent<Door>().OpenDoor();
+            Door.OpenDoor();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             ButtonStatus = true;
-            Door.GetComponent<Door>().OpenDoor();
+            Door.OpenDoor();
         }
 
         private void FixedUpdate()

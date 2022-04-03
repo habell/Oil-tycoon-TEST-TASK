@@ -4,14 +4,15 @@ using UnityEngine;
 namespace Learning.Scripts.Mechanics
 {
     [RequireComponent(typeof(ShootScript))]
+    [RequireComponent(typeof(MineScript))]
     public class PlayerController : MonoBehaviour
     {
         private ShootScript _shootScript;
         private MineScript _mineScript;
         private void Awake()
         {
-            _shootScript = (ShootScript)gameObject.GetComponent(typeof(ShootScript));
-            _mineScript = (MineScript)gameObject.GetComponent(typeof(MineScript));
+            _shootScript = GetComponent<ShootScript>();
+            _mineScript = GetComponent<MineScript>();
         }
 
         private void Update()

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Learning.Scripts.Other
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Door : MonoBehaviour
     {
         private float _defYpos;
@@ -9,20 +10,20 @@ namespace Learning.Scripts.Other
         private bool _doorStatus;
         public Button button1;
         public Button button2;
-        private AudioSource AS;
-        private AudioClip clip;
+        private AudioSource _audioSource;
+        private AudioClip _clip;
 
     
         void Start()
         {
             _defYpos = transform.position.y;
-            AS = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
         public void OpenDoor()
         {
             if (button1.ButtonStatus && button2.ButtonStatus) _doorStatus = !_doorStatus;
-            AS.clip = clip;
-            AS.Play();
+            _audioSource.clip = _clip;
+            _audioSource.Play();
         }
 
         private void FixedUpdate()
