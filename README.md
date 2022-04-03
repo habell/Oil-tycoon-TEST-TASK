@@ -1,3 +1,3 @@
 # Unity
 
-Хаблиев Learn Project hw 1
+Хаблиев Learn Project
