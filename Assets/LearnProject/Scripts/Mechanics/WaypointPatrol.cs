@@ -1,26 +1,57 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Learning.Scripts.Mechanics
 {
+    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(NavMeshAgent))]
     public class WaypointPatrol : MonoBehaviour
     {
-        public NavMeshAgent navMeshAgent;
+        [SerializeField] private NavMeshAgent _navMeshAgent;
         public Transform[] waypoints;
+        private bool _haveTargetPlayer;
+        private int m_CurrentWaypointIndex;
 
-        int m_CurrentWaypointIndex;
-
-        void Start ()
+        private void Start ()
         {
-            navMeshAgent.SetDestination (waypoints[0].position);
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _navMeshAgent.SetDestination (waypoints[0].position);
         }
 
-        void Update ()
+        private void OnTriggerEnter(Collider other)
         {
-            if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+            if (other.CompareTag("Player"))
+            {
+                if (other.TryGetComponent(out MovingSystem player))
+                {
+                    _haveTargetPlayer = true;
+                    _navMeshAgent.SetDestination(player.transform.position);
+                }
+            }
+        }
+
+        private void OnCollisionExit(Collision other)
+        {
+            var collisionObject = other.gameObject;
+            if (collisionObject.CompareTag("Player"))
+            {
+                if (collisionObject.TryGetComponent(out MovingSystem player))
+                {
+                    _haveTargetPlayer = false;
+                    _navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+                }
+            }
+        }
+
+        private void Update ()
+        {
+            if (_haveTargetPlayer) return;
+            if(_navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)
             {
                 m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-                navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);
+                _navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);
             }
         }
     }

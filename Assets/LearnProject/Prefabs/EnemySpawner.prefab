@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cecca406a271b4abbbaa3b3a94effe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnedObject: {fileID: 0}
-  DefaultTime: 30
+  _spawnedObject: {fileID: 3952214673561973610, guid: eb6b1a934fe708d4bb4c271f5342ebe0,
+    type: 3}
+  _defaultTime: 30
+  _waypoints: []
