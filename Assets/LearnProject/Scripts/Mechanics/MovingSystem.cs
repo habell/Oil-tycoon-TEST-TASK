@@ -2,18 +2,20 @@ using UnityEngine;
 
 namespace Learning.Scripts.Mechanics
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class MovingSystem : MonoBehaviour
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed = 1;
-        [SerializeField] private float _jumpMax = 100;
+        [SerializeField] private float _jumpMax = 3;
         [SerializeField] private Vector3 _direction;
-        private float _yDefault;
         private bool _jumpStop;
+        private Rigidbody _rigidbody;
 
         void Start()
         {
-            _yDefault = _direction.y;
+            _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody.freezeRotation = true;
         }
         void Update()
         {
@@ -21,23 +23,19 @@ namespace Learning.Scripts.Mechanics
             _direction.z = Input.GetAxis("Vertical");
             if (x != 0)
                 transform.Rotate(0, x, 0);
-
-            // логика прыжка
+            
             if (Input.GetKeyUp(KeyCode.Space)) _jumpStop = true;
             if (Input.GetKey(KeyCode.Space) && !_jumpStop)
             {
-                gameObject.transform.position += new Vector3(0, Time.deltaTime * _jumpSpeed, 0);
-                if (gameObject.transform.position.y >= _jumpMax) _jumpStop = true;
+                _rigidbody.AddForce(Vector3.up * _jumpSpeed);
+                if (_rigidbody.velocity.y > _jumpMax) 
+                    _jumpStop = true;
             }
             else
             {
-                if (_yDefault < gameObject.transform.position.y)
-                {
-                    gameObject.transform.position -= new Vector3(0, Time.deltaTime * _jumpSpeed, 0);
-                    if (gameObject.transform.position.y <= _yDefault) _jumpStop = false;
-                }
+                if (_jumpStop && _rigidbody.velocity.y == 0)
+                    _jumpStop = false;
             }
-            gameObject.GetComponent<Rigidbody>().freezeRotation = true;
         }
 
         private void FixedUpdate()

@@ -26,6 +26,7 @@ namespace Learning.Scripts.DamageSystem
                 return;
             }
             if (collision.gameObject.TryGetComponent(out Health objHealth)) CollisionAmmo(objHealth);
+            else CollisionAmmo(null); 
         }
 
         protected abstract void CollisionAmmo(Health objHealth);

@@ -14,16 +14,19 @@ namespace Learning.Scripts.Other
         {
             _oldXpos = transform.position.x;
         }
-        private void OnTriggerEnter(Collider other)
-        {
-            ButtonStatus = true;
-            Door.OpenDoor();
-        }
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    ButtonStatus = true;
+        //    Door.OpenDoor();
+        //}
 
         private void OnCollisionEnter(Collision collision)
         {
-            ButtonStatus = true;
-            Door.OpenDoor();
+            if (collision.gameObject.CompareTag(Door.tag))
+            {
+                ButtonStatus = true;
+                Door.OpenDoor();
+            }
         }
 
         private void FixedUpdate()
