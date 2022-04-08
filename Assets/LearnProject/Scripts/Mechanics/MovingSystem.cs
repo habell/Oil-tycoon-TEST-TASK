@@ -10,17 +10,44 @@ namespace Learning.Scripts.Mechanics
         [SerializeField] private float _jumpMax = 3;
         [SerializeField] private Vector3 _direction;
         private bool _jumpStop;
+        private bool _run;
+        private bool _walk;
         private Rigidbody _rigidbody;
+        private Animator _animator;
+        private static readonly int Vertical = Animator.StringToHash("vertical");
+        private static readonly int Run = Animator.StringToHash("run");
+        private static readonly int Walk = Animator.StringToHash("walk");
+
 
         void Start()
         {
+            _animator = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.freezeRotation = true;
         }
         void Update()
         {
+
             var x = Input.GetAxis("Horizontal");
             _direction.z = Input.GetAxis("Vertical");
+            if (_direction.z != 0)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    _run = true;
+                    _walk = false;
+                }
+                else
+                {
+                    _run = false;
+                    _walk = true;
+                }
+            }
+            else
+            {
+                _run = false;
+                _walk = false;
+            }
             if (x != 0)
                 transform.Rotate(0, x, 0);
             
@@ -40,7 +67,14 @@ namespace Learning.Scripts.Mechanics
 
         private void FixedUpdate()
         {
-            Vector3 moveSpeed = _direction * _speed * Time.fixedDeltaTime;
+            _animator.SetFloat(Vertical, _direction.z);
+            _animator.SetBool(Run, _run);
+            _animator.SetBool(Walk, _walk);
+            Vector3 moveSpeed;
+            if(_run)
+                moveSpeed = _direction * _speed * Time.fixedDeltaTime;
+            else
+                moveSpeed = _direction * (_speed/2) * Time.fixedDeltaTime;
             transform.Translate(moveSpeed);
         }
     }
