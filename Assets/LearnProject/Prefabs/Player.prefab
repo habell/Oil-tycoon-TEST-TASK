@@ -908,8 +908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a92f44b48370b4d8c3f5d673984f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mine: {fileID: 0}
-  _mineSpawnPlace: {fileID: 0}
+  _mine: {fileID: 982032751883023833, guid: be9e7ce396d011e4191d0b34f2bfc10f, type: 3}
+  _mineSpawnPlace: {fileID: 4403377812142046890}
 --- !u!114 &4220235376604826120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293b49a9bbd1ecd498415888d5f80bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 8
   _jumpSpeed: 20
   _jumpMax: 3
   _direction: {x: 0, y: 0, z: 0}
@@ -939,9 +939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyCounter: {fileID: 0}
-  _maxHealth: 0
-  _enemyType: 
-  _isPlayer: 0
+  _maxHealth: 1000
+  _enemyType: Player
+  _isPlayer: 1
 --- !u!114 &4220235376604826126
 MonoBehaviour:
   m_ObjectHideFlags: 0

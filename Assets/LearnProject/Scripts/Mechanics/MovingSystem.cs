@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Timers;
 using UnityEngine;
 
 namespace Learning.Scripts.Mechanics
@@ -18,14 +20,28 @@ namespace Learning.Scripts.Mechanics
         private static readonly int Run = Animator.StringToHash("run");
         private static readonly int Walk = Animator.StringToHash("walk");
 
+        public void SetSpeed(float speed, float time = 0)
+        {
+            StartCoroutine(SpeedBoster(speed, time));
+        }
+        IEnumerator SpeedBoster(float speed, float boostTime)
+        {
+            var oldSpeed = _speed;
+            _speed = speed;
+            if (boostTime == 0) yield return null;
+            yield return new WaitForSeconds(boostTime);
+            _speed = oldSpeed;
+            yield return null;
+        }
+        
 
-        void Start()
+        private void Start()
         {
             _animator = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.freezeRotation = true;
         }
-        void Update()
+        private void Update()
         {
 
             var x = Input.GetAxis("Horizontal");
