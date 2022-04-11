@@ -3,8 +3,7 @@ using UnityEngine;
 
 namespace Learning.Scripts.Mechanics
 {
-    [RequireComponent(typeof(ShootScript))]
-    [RequireComponent(typeof(MineScript))]
+    [RequireComponent(typeof(MineScript), typeof(ShootScript))]
     public class PlayerController : MonoBehaviour
     {
         private ShootScript _shootScript;

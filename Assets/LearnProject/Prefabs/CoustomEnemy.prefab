@@ -151,11 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87db442af6be8e4a982be8e171e123b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3952214673561973609}
+  _navMeshAgent: {fileID: 0}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _howSecondNeedToRemoveTarget: 2
 --- !u!114 &3952214673561973610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,5 +183,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyCounter: {fileID: 0}
   _maxHealth: 150
-  _enemyType: Enemy
+  _enemyType: 1
   _isPlayer: 0
