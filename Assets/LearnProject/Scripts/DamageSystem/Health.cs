@@ -1,4 +1,5 @@
 using Learning.Scripts.Mechanics;
+using Learning.Scripts.Other;
 using UnityEngine;
 namespace Learning.Scripts.DamageSystem
 {
@@ -8,7 +9,7 @@ namespace Learning.Scripts.DamageSystem
         private int _amount;
         //[SerializeField] private Text _enemyDeathsText;
         [SerializeField] private int _maxHealth;
-        [SerializeField] private string _enemyType;
+        [SerializeField] private CharactersType _enemyType;
         [SerializeField] private bool _isPlayer;
         
         public bool IsPlayer { get; set; }

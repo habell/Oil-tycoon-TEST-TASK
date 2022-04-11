@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Timers;
 using UnityEngine;
 
 namespace Learning.Scripts.Mechanics
@@ -11,29 +10,37 @@ namespace Learning.Scripts.Mechanics
         [SerializeField] private float _jumpSpeed = 1;
         [SerializeField] private float _jumpMax = 3;
         [SerializeField] private Vector3 _direction;
+        
         private bool _jumpStop;
         private bool _run;
         private bool _walk;
+        
         private Rigidbody _rigidbody;
         private Animator _animator;
+        
         private static readonly int Vertical = Animator.StringToHash("vertical");
         private static readonly int Run = Animator.StringToHash("run");
         private static readonly int Walk = Animator.StringToHash("walk");
 
+        private Coroutine _speedCoroutine;
+        
         public void SetSpeed(float speed, float time = 0)
         {
-            StartCoroutine(SpeedBoster(speed, time));
-        }
-        IEnumerator SpeedBoster(float speed, float boostTime)
-        {
-            var oldSpeed = _speed;
-            _speed = speed;
-            if (boostTime == 0) yield return null;
-            yield return new WaitForSeconds(boostTime);
-            _speed = oldSpeed;
-            yield return null;
+            if(_speedCoroutine != null) StopCoroutine(_speedCoroutine);
+            _speedCoroutine = StartCoroutine(SpeedBooster(speed, time));
         }
         
+        private IEnumerator SpeedBooster(float speed, float time)
+        {
+            if (time <= 0f) _speed = speed;
+            else
+            {
+                var oldSpeed = _speed;
+                _speed = speed;
+                yield return new WaitForSeconds(time);
+                _speed = oldSpeed;
+            }
+        }
 
         private void Start()
         {
@@ -41,9 +48,9 @@ namespace Learning.Scripts.Mechanics
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.freezeRotation = true;
         }
+        
         private void Update()
         {
-
             var x = Input.GetAxis("Horizontal");
             _direction.z = Input.GetAxis("Vertical");
             if (_direction.z != 0)
