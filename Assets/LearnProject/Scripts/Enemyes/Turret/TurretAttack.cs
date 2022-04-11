@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Learning.Scripts.Enemyes.Turret
 {
-    [RequireComponent(typeof(Turret))]
+    //[RequireComponent(typeof(Turret))]
     [RequireComponent(typeof(ShootScript))]
     public class TurretAttack : MonoBehaviour
     {    

@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 9019283301977639596}
   - component: {fileID: -1142046227379649171}
   - component: {fileID: 982032751883023833}
+  - component: {fileID: 5725832762547903534}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -142,6 +143,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 80
+--- !u!135 &5725832762547903534
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713333246408668213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 12
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6146275318639410543
 GameObject:
   m_ObjectHideFlags: 0
