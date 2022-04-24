@@ -5,7 +5,7 @@ namespace Learning.Scripts.Enemyes
     public class Enemy : MonoBehaviour
     {
         //public delegate void Die();
-        
+
         /*
         [SerializeField] private WaypointPatrol _waypointPatrol;
 

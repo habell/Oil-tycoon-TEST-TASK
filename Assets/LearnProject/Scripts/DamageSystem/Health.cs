@@ -1,20 +1,29 @@
 using Learning.Scripts.Mechanics;
 using Learning.Scripts.Other;
+using LearnProject.Scripts.Interfaces;
 using UnityEngine;
+
 namespace Learning.Scripts.DamageSystem
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Health : DieSystem
+    public class Health : DieSystem, IHealth
     {
-        private int _amount;
-        //[SerializeField] private Text _enemyDeathsText;
-        [SerializeField] private int _maxHealth;
-        [SerializeField] private CharactersType _enemyType;
-        [SerializeField] private bool _isPlayer;
+        [SerializeField]
+        private float _maxHealth;
+
+        [SerializeField]
+        private CharactersType _enemyType;
+
+        [SerializeField]
+        private bool _isPlayer;
+
+        private float _amount;
         
         public bool IsPlayer { get; set; }
 
-        private int Amount
+        public float MaxHealth => _maxHealth;
+        
+        public float Amount
         {
             get => _amount;
             set
@@ -26,8 +35,15 @@ namespace Learning.Scripts.DamageSystem
 
         private void Awake()
         {
-            _amount = _maxHealth;
-            //_enemyDeathsText = (Text)GameObject.FindGameObjectWithTag("EnemyCounter").GetComponent(typeof(Text)); // sorry t_t
+            if(TryGetComponent(out Player ply))
+            {
+                _amount = (int)ply.MaxHealth;
+            }
+            else
+            {
+                _amount = _maxHealth;
+            }
+            //_enemyDeathsText = (Text)GameObject.FindGameObjectWithTag("EnemyLeftTo").GetComponent(typeof(Text)); // sorry t_t
         }
 
         /// <summary>
@@ -51,7 +67,7 @@ namespace Learning.Scripts.DamageSystem
         {
             if (gameObject.CompareTag("Enemy")) //This is a horrible crutch, I think there could be a way to call die()objects with some kind of custom method die I just don't know how to do it, it would be cool to do it with delegates, but I don't know how(
                 if (_enemyDeathsText) 
-                    _enemyDeathsText.text = (int.Parse(_enemyDeathsText.text) + 1).ToString(); 
+                    _enemyDeathsText.EnemyLeftTo = (int.Parse(_enemyDeathsText.EnemyLeftTo) + 1).ToString(); 
             Die(_enemyType, gameObject);
         }
         */

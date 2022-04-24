@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class HealthPickUp : PickupItem
 {
-    [SerializeField] private int _healthAmmount = 10;
+    [SerializeField]
+    private int _healthAmmount = 10;
+
     protected override void PickUp(GameObject owner)
     {
         if (owner.TryGetComponent(out Health health))
@@ -16,6 +18,7 @@ public class HealthPickUp : PickupItem
             Debug.LogError("this entity doesnt have Health component! Please refactoring this problem!");
             return;
         }
+
         gameObject.SetActive(false);
     }
 }
