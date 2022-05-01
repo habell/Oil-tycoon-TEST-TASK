@@ -12,6 +12,9 @@ namespace Learning.Scripts.DamageSystem
         [SerializeField]
         private float _explosiveRadius = 12f;
 
+        [SerializeField]
+        private ParticleSystem _particleSystem;
+        
         private List<GameObject> _ExplosivedEnemyes;
         private SphereCollider _explosiveZoneCollider;
 
@@ -53,6 +56,10 @@ namespace Learning.Scripts.DamageSystem
             }
             objHealth.Hurt(_damage);
 
+            var particle = Instantiate(_particleSystem, transform.position, transform.rotation * Quaternion.Euler(-90, 0, 0));
+            particle.Play();
+            particle.GetComponent<AudioSource>().Play();
+            Destroy(particle, 1);
             Destroy(gameObject);
         }
     }
