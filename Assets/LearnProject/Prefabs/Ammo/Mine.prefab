@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: -0.18416023}
   m_LocalScale: {x: 327.05893, y: 327.05893, z: 327.05893}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9019283301977639596}
   m_RootOrder: 1
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -110,6 +112,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.018, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5312004344620782188}
   - {fileID: -4096120871940991593}
@@ -143,6 +146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 80
+  _explosiveMovingForce: 6
+  _explosiveRadius: 12
+  _particleSystem: {fileID: 3851998939275044795, guid: 02751b2fa4e1bb34bad380c70e58b23c,
+    type: 3}
+  _explosiveSound: {fileID: 0}
 --- !u!135 &5725832762547903534
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -184,6 +192,7 @@ Transform:
   m_LocalRotation: {x: -0.000000026692543, y: -0.00000002669254, z: 0.7071067, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 4.4837127, z: -0.18416023}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9019283301977639596}
   m_RootOrder: 0
@@ -207,6 +216,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

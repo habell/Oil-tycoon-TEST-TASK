@@ -6,12 +6,13 @@ namespace Learning.Scripts.Enemyes.Turret
     //[RequireComponent(typeof(Turret))]
     [RequireComponent(typeof(ShootScript))]
     public class TurretAttack : MonoBehaviour
-    {    
-        [SerializeField] private float _attackSpeed = 1;
-
-        private ShootScript _shootScript;
+    {
+        [SerializeField]
+        private float _attackSpeed = 1;
 
         private bool _attackStatus;
+
+        private ShootScript _shootScript;
 
         private float _timer;
 
@@ -20,11 +21,6 @@ namespace Learning.Scripts.Enemyes.Turret
             _shootScript = (ShootScript)GetComponent(typeof(ShootScript));
         }
 
-        public void SetAttackStatus(bool status)
-        {
-            _timer = _attackSpeed;
-            _attackStatus = status;
-        }
         private void FixedUpdate()
         {
             if (_attackStatus)
@@ -37,6 +33,12 @@ namespace Learning.Scripts.Enemyes.Turret
 
                 _timer -= Time.fixedDeltaTime;
             }
+        }
+
+        public void SetAttackStatus(bool status)
+        {
+            _timer = _attackSpeed;
+            _attackStatus = status;
         }
     }
 }
