@@ -1,3 +1,1 @@
-# Unity
-
-Хаблиев Learn Project
+# Unity GBHW
