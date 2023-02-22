@@ -1,3 +1,0 @@
-# Unity
-
-Хаблиев Learn Project
