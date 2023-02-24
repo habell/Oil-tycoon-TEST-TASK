@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Infrastructure
 {
@@ -8,12 +9,13 @@ namespace Infrastructure
         private Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader)
+        public GameStateMachine(SceneLoader sceneLoader, GameObject gameBootstrapper)
         {
-            _states = new Dictionary<Type, IExitableState>()
+            _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+                [typeof(GameLoopState)] = new GameLoopState(gameBootstrapper)
             };
         }
 

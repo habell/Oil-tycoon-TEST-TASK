@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Infrastructure
 {
     public class LoadLevelState : IPayloadedState<string>
@@ -13,11 +15,21 @@ namespace Infrastructure
 
         public void Enter(string sceneName)
         {
-            _sceneLoader.Load("Main");
+            _sceneLoader.Load(sceneName, OnLoaded);
         }
 
-        public void Exit()
+        public void Exit() { }
+
+        private void OnLoaded()
         {
+            var obj = Instantiate("Prefabs/HUD");
+            _gameStateMachine.Enter<GameLoopState>();
+        }
+
+        private GameObject Instantiate(string path)
+        {
+            var prefab = Resources.Load<GameObject>(path);
+            return Object.Instantiate(prefab);
         }
     }
 }
