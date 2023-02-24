@@ -1,12 +1,12 @@
+using UnityEngine;
+
 namespace Infrastructure
 {
     internal class Game
     {
-        public GameStateMachine StateMachine;
+        public readonly GameStateMachine StateMachine;
 
-        public Game(ICoroutineRunner coroutineRunner)
-        {
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner));
-        }
+        public Game(ICoroutineRunner coroutineRunner, GameObject gameBootstrapper) => 
+            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), gameBootstrapper);
     }
 }

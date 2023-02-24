@@ -23,7 +23,7 @@ namespace Infrastructure
             }
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(sceneName);
 
-            while (waitNextScene.isDone)
+            while (!waitNextScene.isDone)
                 yield return null;
 
             onLoaded?.Invoke();

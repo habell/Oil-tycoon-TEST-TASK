@@ -5,7 +5,10 @@ namespace Infrastructure
     public class BootstrapState : IState
     {
         private readonly GameStateMachine _gameStateMachine;
-        private SceneLoader _sceneLoader;
+        private readonly SceneLoader _sceneLoader;
+        private const string InitialScene = "Initial";
+        private const string MainScene = "Main";
+        
 
         public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
         {
@@ -13,17 +16,11 @@ namespace Infrastructure
             _sceneLoader = sceneLoader;
         }
 
-        public void Enter()
-        {
-            _sceneLoader.Load("Initial", EnterLoadLevel);
-        }
+        public void Enter() => _sceneLoader.Load(InitialScene, EnterLoadLevel);
 
         private void EnterLoadLevel() => 
-            _gameStateMachine.Enter<LoadLevelState, string>("Main");
+            _gameStateMachine.Enter<LoadLevelState, string>(MainScene);
 
-        public void Exit()
-        {
-            //throw new NotImplementedException();
-        }
+        public void Exit() { }
     }
 }
