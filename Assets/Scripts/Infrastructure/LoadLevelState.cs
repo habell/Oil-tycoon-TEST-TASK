@@ -6,6 +6,7 @@ namespace Infrastructure
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
+        private const string HUDPath = "Prefabs/HUD";
 
         public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
         {
@@ -13,16 +14,13 @@ namespace Infrastructure
             _sceneLoader = sceneLoader;
         }
 
-        public void Enter(string sceneName)
-        {
-            _sceneLoader.Load(sceneName, OnLoaded);
-        }
+        public void Enter(string sceneName) => _sceneLoader.Load(sceneName, OnLoaded);
 
         public void Exit() { }
 
         private void OnLoaded()
         {
-            var obj = Instantiate("Prefabs/HUD");
+            var obj = Instantiate(HUDPath);
             _gameStateMachine.Enter<GameLoopState>();
         }
 

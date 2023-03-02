@@ -4,9 +4,10 @@ namespace Infrastructure
 {
     internal class Game
     {
-        public readonly GameStateMachine StateMachine;
+        public GameStateMachine StateMachine { get; }
 
         public Game(ICoroutineRunner coroutineRunner, GameObject gameBootstrapper) => 
             StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), gameBootstrapper);
+
     }
 }

@@ -1,4 +1,3 @@
-using Services.Input;
 using UnityEngine;
 
 namespace Infrastructure
@@ -9,7 +8,8 @@ namespace Infrastructure
 
         public GameLoopState(GameObject game) => _game = game;
 
-        public void Enter() => _game.AddComponent<InputService>();
+        public void Enter() { }
+
         public void Exit() { }
 
     }
