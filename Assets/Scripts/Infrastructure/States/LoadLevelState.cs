@@ -1,17 +1,19 @@
-using UnityEngine;
+using Infrastructure.Factory;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
-        private const string HUDPath = "Prefabs/HUD";
+        private readonly IGameFactory _gameFactory;
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
+
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, IGameFactory gameFactory)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
+            _gameFactory = gameFactory;
         }
 
         public void Enter(string sceneName) => _sceneLoader.Load(sceneName, OnLoaded);
@@ -20,14 +22,8 @@ namespace Infrastructure
 
         private void OnLoaded()
         {
-            var obj = Instantiate(HUDPath);
+            var hud = _gameFactory.CreateHUD();
             _gameStateMachine.Enter<GameLoopState>();
-        }
-
-        private GameObject Instantiate(string path)
-        {
-            var prefab = Resources.Load<GameObject>(path);
-            return Object.Instantiate(prefab);
         }
     }
 }
