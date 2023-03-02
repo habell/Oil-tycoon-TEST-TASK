@@ -5,12 +5,12 @@ namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        
-        
-        private readonly IAssets _assetses;
+        private readonly IAssets _assets;
 
-        public GameFactory(IAssets assetses) => _assetses = assetses;
+        public GameFactory(IAssets assets) => _assets = assets;
 
-        public GameObject CreateHUD() => _assetses.Instantiate(AssetPath.HUDPath);
+        public GameObject CreateMainHUD() => _assets.Instantiate(AssetPath.HUDPath);
+
+        public GameObject CreateQuiz(GameObject guiParent, int quizID) => _assets.Instantiate(guiParent, $"{AssetPath.QuizzesPath}{quizID}");
     }
 }

@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: Game Preset
   m_EditorClassIdentifier: 
   <UIRootPrefab>k__BackingField: {fileID: 0}
-  <GameDataList>k__BackingField: []
+  <GameDataList>k__BackingField:
+  - levelType: 1
+    questionString: 
+    answerOptions:
+    - 
+    - 
+    waitSecondsToOpenQuestion: 0
+    dataReference: 

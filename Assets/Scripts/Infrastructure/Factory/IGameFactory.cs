@@ -5,6 +5,7 @@ namespace Infrastructure.Factory
 {
     public interface IGameFactory : IService
     {
-        GameObject CreateHUD();
+        GameObject CreateMainHUD();
+        GameObject CreateQuiz(GameObject guiParent, int quizID);
     }
 }
