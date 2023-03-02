@@ -2,6 +2,7 @@
 {
     public static class AssetPath
     {
-        public const string HUDPath = "Prefabs/HUD";
+        public const string HUDPath = "Prefabs/GUI/HUD";
+        public const string QuizzesPath = "Prefabs/GUI/Quizzes/Quiz";
     }
 }
