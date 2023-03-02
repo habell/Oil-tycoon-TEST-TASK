@@ -1,3 +1,5 @@
+using Infrastructure.Services;
+using Infrastructure.States;
 using UnityEngine;
 
 namespace Infrastructure
@@ -7,7 +9,7 @@ namespace Infrastructure
         public GameStateMachine StateMachine { get; }
 
         public Game(ICoroutineRunner coroutineRunner, GameObject gameBootstrapper) => 
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), gameBootstrapper);
+            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), gameBootstrapper, AllServices.Container);
 
     }
 }

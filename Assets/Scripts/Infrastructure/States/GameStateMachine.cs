@@ -1,20 +1,22 @@
 using System;
 using System.Collections.Generic;
+using Infrastructure.Factory;
+using Infrastructure.Services;
 using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class GameStateMachine
     {
-        private Dictionary<Type, IExitableState> _states;
+        private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader, GameObject gameBootstrapper)
+        public GameStateMachine(SceneLoader sceneLoader, GameObject gameBootstrapper, AllServices services)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, services.Single<IGameFactory>()),
                 [typeof(GameLoopState)] = new GameLoopState(gameBootstrapper)
             };
         }
