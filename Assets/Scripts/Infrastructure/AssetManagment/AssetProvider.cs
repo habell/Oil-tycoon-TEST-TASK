@@ -15,5 +15,7 @@ namespace Infrastructure.AssetManagment
             var prefab = Resources.Load<GameObject>(path);
             return Object.Instantiate(prefab, guiParent.transform);
         }
+
+        public Sprite GetSprite(string path) => Resources.Load<Sprite>(path);
     }
 }

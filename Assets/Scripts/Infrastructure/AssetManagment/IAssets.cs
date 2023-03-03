@@ -7,5 +7,7 @@ namespace Infrastructure.AssetManagment
     {
         GameObject Instantiate(string path);
         GameObject Instantiate(GameObject guiParent, string path);
+
+        Sprite GetSprite(string path);
     }
 }
