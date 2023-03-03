@@ -22,8 +22,7 @@ namespace Infrastructure.States
 
         private void OnLoaded()
         {
-            var hud = _gameFactory.CreateMainHUD();
-            _gameFactory.CreateQuiz(hud,0);
+            _gameFactory.CreateMainHUD();
             _gameStateMachine.Enter<GameLoopState>();
         }
     }
