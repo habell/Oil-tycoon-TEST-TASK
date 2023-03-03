@@ -7,9 +7,6 @@ namespace Infrastructure.Data
     public class GamePreset : ScriptableObject
     {
         [field: SerializeField]
-        public GameObject UIRootPrefab { get; private set; }
-
-        [field: SerializeField]
         public List<GameData> GameDataList { get; private set; }
     }
 }

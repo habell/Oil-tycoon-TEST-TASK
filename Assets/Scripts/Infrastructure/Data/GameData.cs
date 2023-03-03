@@ -1,19 +1,16 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace Infrastructure.Data
 {
     [Serializable]
     public struct GameData
     {
-        public LevelType levelType;
-
-        public string questionString;
-
-        public List<string> answerOptions;
-
-        public float waitSecondsToOpenQuestion;
-
-        public string dataReference;
+        public string question;
+        
+        public List<string> answersText;
+        
+        public int correctAnswerID;
     }
 }

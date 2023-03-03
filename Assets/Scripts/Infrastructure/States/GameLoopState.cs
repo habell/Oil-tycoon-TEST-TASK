@@ -1,14 +1,15 @@
+using Infrastructure.Factory;
 using UnityEngine;
 
 namespace Infrastructure.States
 {
     public class GameLoopState : IState
     {
-        private readonly GameObject _game;
+        private readonly IGameFactory _gameFactory;
+        
+        public GameLoopState(IGameFactory gameFactory) => _gameFactory = gameFactory;
 
-        public GameLoopState(GameObject game) => _game = game;
-
-        public void Enter() { }
+        public void Enter() => _gameFactory.CreateQuiz(_gameFactory.GUIRoot,0);
 
         public void Exit() { }
 
