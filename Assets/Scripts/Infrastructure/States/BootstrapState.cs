@@ -1,4 +1,5 @@
 using Infrastructure.AssetManagment;
+using Infrastructure.Data;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 
@@ -28,6 +29,7 @@ namespace Infrastructure.States
         {
             _services.RegisterSingle<IAssets>(new AssetProvider());
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
+            _services.RegisterSingle<PlayerProgress>(new PlayerProgress());
         }
 
         private void EnterLoadLevel() => 
