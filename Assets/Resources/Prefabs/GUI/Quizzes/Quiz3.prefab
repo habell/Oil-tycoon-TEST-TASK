@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 4690595216884850036}
   - component: {fileID: 4121180860965473008}
   m_Layer: 5
-  m_Name: Button_2
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,11 +303,11 @@ RectTransform:
   m_Children:
   - {fileID: 763616710382630575}
   m_Father: {fileID: 4464331206414842796}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.75000006, y: 0.07}
-  m_AnchoredPosition: {x: 89.5, y: 410}
+  m_AnchoredPosition: {x: 87.5, y: 449}
   m_SizeDelta: {x: 113.740295, y: 21.569397}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2455254876129294595
@@ -391,7 +391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4690595216884850036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7025186229519934581}
+        m_TargetAssemblyTypeName: Game.Quizzes.Quiz3, Assembly-CSharp
+        m_MethodName: OnPlayerClickAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3013504835726818081
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +417,7 @@ GameObject:
   - component: {fileID: 2113049907604676808}
   - component: {fileID: 628580732466939700}
   m_Layer: 5
-  m_Name: Button_1
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,11 +437,11 @@ RectTransform:
   m_Children:
   - {fileID: 7309497093655210368}
   m_Father: {fileID: 4464331206414842796}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23300001, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.07}
-  m_AnchoredPosition: {x: -80.369995, y: 410}
+  m_AnchoredPosition: {x: -81.37, y: 450}
   m_SizeDelta: {x: 100.740295, y: 21.899384}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &8926375561899834037
@@ -513,7 +525,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113049907604676808}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7025186229519934581}
+        m_TargetAssemblyTypeName: Game.Quizzes.Quiz3, Assembly-CSharp
+        m_MethodName: OnPlayerClickAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3830453436866532071
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +551,7 @@ GameObject:
   - component: {fileID: 3654361186546200174}
   - component: {fileID: 1622258019639764121}
   m_Layer: 5
-  m_Name: Button_3
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.75000006, y: 0.07}
-  m_AnchoredPosition: {x: 88.99988, y: 201}
+  m_AnchoredPosition: {x: 89, y: 163}
   m_SizeDelta: {x: 116.740295, y: 20.239502}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1646611087303436805
@@ -635,7 +659,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3654361186546200174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7025186229519934581}
+        m_TargetAssemblyTypeName: Game.Quizzes.Quiz3, Assembly-CSharp
+        m_MethodName: OnPlayerClickAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4352382014859922862
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +820,7 @@ GameObject:
   - component: {fileID: 268716419138754751}
   - component: {fileID: 3046639778304357363}
   m_Layer: 5
-  m_Name: Button_0
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,11 +840,11 @@ RectTransform:
   m_Children:
   - {fileID: 2084187160415185591}
   m_Father: {fileID: 4464331206414842796}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23300001, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.07}
-  m_AnchoredPosition: {x: -80.87012, y: 201}
+  m_AnchoredPosition: {x: -81.87, y: 165}
   m_SizeDelta: {x: 101.740295, y: 20.569397}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3257560234838090353
@@ -892,7 +928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 268716419138754751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7025186229519934581}
+        m_TargetAssemblyTypeName: Game.Quizzes.Quiz3, Assembly-CSharp
+        m_MethodName: OnPlayerClickAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6800702504661409594
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,9 +976,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.559}
   m_AnchorMax: {x: 0.5, y: 0.68200004}
-  m_AnchoredPosition: {x: 9.000013, y: 260.61816}
+  m_AnchoredPosition: {x: 9, y: 139.00037}
   m_SizeDelta: {x: 545.31, y: 243.23596}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6640445665879472907
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -952,14 +1000,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3494dc956dfd7174abc07060940a2848, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -980,6 +1028,7 @@ GameObject:
   - component: {fileID: 4464331206414842796}
   - component: {fileID: 4670497720799591658}
   - component: {fileID: 6957282323548770835}
+  - component: {fileID: 7025186229519934581}
   m_Layer: 5
   m_Name: Quiz3
   m_TagString: Untagged
@@ -999,9 +1048,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3670323921802561009}
   - {fileID: 7400095467175057347}
   - {fileID: 1563101163424724425}
+  - {fileID: 3670323921802561009}
   - {fileID: 6416372291760064695}
   - {fileID: 478246427311844003}
   m_Father: {fileID: 0}
@@ -1050,6 +1099,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7025186229519934581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8521194932903542741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7041d210d6e74f0fb95a009ea1922651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  question: {fileID: 0}
+  answers:
+  - {fileID: 628580732466939700}
+  - {fileID: 4121180860965473008}
+  - {fileID: 3046639778304357363}
+  - {fileID: 1622258019639764121}
+  correctAnswerID: 0
+  gamePreset: {fileID: 11400000, guid: 461855593b1f5ab439a16daeeaa8da23, type: 2}
+  hypnoCircle: {fileID: 7864029645201565029}
 --- !u!1 &8682786875235270739
 GameObject:
   m_ObjectHideFlags: 0
